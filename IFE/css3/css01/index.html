@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h3>前端学院</h3>
+    <p class="underline"></p>
+    <button>切换样式</button>
+    <script>
+       const btn = document.querySelector('button');
+       const h = document.querySelector('h3');
+       const p = document.querySelector('p');
+       var isStart = true;
+       btn.addEventListener('click', ()=>{
+           if(isStart) {
+               h.style.color = 'blue';
+               p.style.width = '200px';
+           } else {
+                h.style.color = '#000';
+                p.style.width = '0';
+           }
+           isStart = !isStart;
+       })
+    </script>
+</body>
+</html>

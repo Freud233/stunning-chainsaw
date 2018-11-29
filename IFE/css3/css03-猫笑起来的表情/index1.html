@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 100%;
+            height: 30px;
+            background-color: red;
+        }
+
+        .box1 {
+            height: 60px;
+            width: 140px;
+            position: absolute;
+            margin-top: 30px;
+            top: 0;
+        }
+
+        p {
+            margin-bottom: 20px;
+ 
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box1">
+        <p>水电费水电费</p>
+        <p>分工会和规划局</p>
+    </div>
+    <script src="../jquery-1.12.2.min.js"></script>
+    <script>
+        var count = 0;
+        setInterval(function(){
+            count--;
+            $('.box1').animate({
+                top: count-- + 'px'
+            })
+        },200)
+    </script>
+</body>
+</html>
