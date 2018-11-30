@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 600px;
+            height: 600px;
+            background-color: rgb(224, 137, 181);
+            margin: 50px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .heart {
+            /* background-color: rgb(218, 32, 63); */
+            transform: translateY(130px);
+            /* transform: rotateZ(180deg); */
+            border-bottom: 0;
+            border-left: 250px solid transparent;
+            border-top: 250px solid red;
+            border-right: 250px solid transparent;
+            position: relative;
+            /* box-shadow: 0 0 10px black; */
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            width: 350px;
+            height: 350px;
+            position: absolute;
+            background-color: red;
+            border-radius: 50%;
+            /* top: 0; */
+            top: -535px;
+            left: 0;
+        }
+
+        .heart::after{
+            left: -289px;
+            box-shadow: -7px -11px 13px rgb(189, 19, 19);
+        }
+
+         .heart::before{
+            box-shadow: 4px -8px 8px rgb(189, 19, 19);
+            left: -60.9px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="heart"></div>
+    </div>
+</body>
+</html>

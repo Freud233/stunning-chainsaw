@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(90deg, #d8cccc, #d8cccc 50%, black 50%);
+            margin: 100px auto;
+            border-radius: 50%;
+        }
+
+        div::before,
+        div::after {
+            position: absolute;
+            content: "";
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            left: 100px;
+        }
+
+        div::before {
+            background: black;
+            /* box-shadow: 0px 200px 0px -70px red; */
+            background: radial-gradient(#d8cccc, #d8cccc 20%, black 20%);
+        }
+
+        div::after {
+            background: #d8cccc;
+            top: 200px;
+            background: radial-gradient(black, black 20%, #d8cccc 20%);
+            /* box-shadow: 0px -200px 0px -70px #d8cccc; */
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrap {
+            /* perspective: 1000px; */
+        }
+
+        nav {
+            position: relative;
+
+        }
+
+        .item {
+            transform-style: preserve-3d;
+            transition: all 1s;
+            margin: 50px 10px;
+            /* border: 1px solid red; */
+            height: 80px;
+            width: 100px;
+            float: left;
+        }
+
+        .item:hover {
+            transform: rotateX(-90deg);
+        }
+
+        .item div {
+            text-align: center;
+            line-height: 40px;
+            width: 120px;
+            height: 40px;
+            position: absolute;
+            top: 20px;
+            /* left: 0; */
+        }
+
+        #item2 {
+            left: 100px;
+        }
+
+        .item-title {
+            background-color: red;
+            transform: translateY(-20px) rotateX(90deg);
+        }
+
+        .item-h {
+            background-color: green;
+            transform: translateZ(20px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <nav>
+            <div class="item">
+                <div class="item-title">史蒂夫啊</div>
+                <div class="item-h">Web前端</div>
+            </div>
+            <div class="item">
+                <div class="item-title">史蒂夫啊</div>
+                <div class="item-h">Web前端</div>
+            </div>
+            <div class="item">
+                <div class="item-title">史蒂夫啊</div>
+                <div class="item-h">Web前端</div>
+            </div>
+            <div class="item">
+                <div class="item-title">史蒂夫啊</div>
+                <div class="item-h">Web前端</div>
+            </div>
+        </nav>
+    </div>
+</body>
+
+</html>

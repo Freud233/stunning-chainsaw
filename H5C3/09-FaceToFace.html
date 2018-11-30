@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .card {
+            width: 400px;
+            height: 600px;
+            margin: 50px auto;
+            position: relative;
+            transition: transform 2s;
+            transform-style: preserve-3d;
+        }
+
+        .front,
+        .back {
+            width: 400px;
+            height: 600px;
+            position: absolute;
+            background-image: url("./images/2.jpg");
+            background-size: cover;
+        }
+
+        .front {
+            transform: rotateY(180deg);
+        }
+
+        .back {
+            background-image: url("./images/3.jpg");
+            backface-visibility: hidden;
+        }
+
+        .card:hover {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="front"></div>
+        <div class="back"></div>
+    </div>
+</body>
+
+</html>
