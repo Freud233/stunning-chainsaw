@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrap {
+            height: 600px;
+            width: 900px;
+            /* border: 1px solid red; */
+            display: flex;
+            justify-content: flex-end;
+            /* align-content:flex-end; */
+            flex-flow: wrap;
+            box-sizing: content-box;
+        }
+
+        .box1,
+        .box2,
+        .box3,
+        .box4,
+        .box5 {
+            /* flex: 1; */
+            width: 200px;
+            height: 200px;
+            /* box-sizing: border-box; */
+            /* border: 4px solid rgb(154, 194, 154); */
+             font-size: 40px;
+            text-align: center;
+            line-height: 200px;
+        }
+        .box1 {
+            flex-grow: 1;
+            background-color: red;
+            /* order: -1; */
+        }
+
+           .box2 {
+            background-color: rgb(53, 32, 112);
+            flex-grow: 1;
+            order: -1;
+            /* order: -1; */
+        }
+        .box3 {
+            background-color: rgb(78, 112, 16);
+            flex-grow: 2;
+            /* order: -1; */
+        }
+        .box4 {
+            background-color: rgb(38, 142, 168);
+            flex-grow: 1;
+            /* order: -1; */
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box1">1</div>
+        <div class="box2">2</div>
+        <div class="box3">3</div>
+        <div class="box4">4</div>
+    </div>
+</body>
+</html>

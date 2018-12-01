@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function draw() {
+            var canvas = document.querySelector("#canvas");
+            var ctx = canvas.getContext("2d");
+            ctx.beginPath();
+            ctx.moveTo(25,25);
+            ctx.lineTo(25, 100);
+            ctx.lineTo(100, 25);
+            ctx.fillStyle = "rgba(200, 1, 20, 0.7)"
+            ctx.fill();
+        }
+    </script>
+</head>
+
+<body onload="draw()">
+    <canvas id="canvas"></canvas>
+    <script>
+    </script>
+</body>
+
+</html>

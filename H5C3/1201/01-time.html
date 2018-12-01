@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 400px;
+            border: 5px solid rgb(182, 174, 174);
+            margin: 100px auto;
+            border-radius: 50%;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .item {
+            width: 5px;
+            height: 400px;
+            background-color: rgb(182, 174, 174);
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+        }
+
+        .item:nth-of-type(2) {
+            transform: translate(-50%, -50%) rotateZ(30deg);
+        }
+
+        .item:nth-of-type(3) {
+            transform: translate(-50%, -50%) rotateZ(60deg);
+        }
+
+        .item:nth-of-type(4) {
+            transform: translate(-50%, -50%) rotateZ(90deg);
+        }
+
+        .item:nth-of-type(5) {
+            transform: translate(-50%, -50%) rotateZ(120deg);
+        }
+
+        .item:nth-of-type(6) {
+            transform: translate(-50%, -50%) rotateZ(150deg);
+        }
+
+        .hidden,
+        .center {
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* transform: translate(-50%, -50%); */
+        }
+
+        .hidden {
+            width: 360px;
+            height: 360px;
+            background-color: #fff;
+        }
+
+        .hour,
+        .min,
+        .sce {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -100%);
+            transform-origin: center bottom;
+        }
+
+        .hour {
+            background-color: red;
+            width: 15px;
+            height: 100px;
+            animation: gogogo 43200s linear infinite;
+        }
+
+        .min {
+            background-color: rgb(51, 153, 102);
+            width: 10px;
+            height: 125px;
+            animation: gogogo 3600s linear infinite;
+        }
+
+        .sce {
+            background-color: rgb(185, 196, 35);
+            width: 5px;
+            height: 150px;
+            animation: gogogo 60s steps(60) infinite;
+        }
+
+        .center {
+            width: 25px;
+            height: 25px;
+            background-color: rgb(182, 174, 174);
+        }
+
+        @keyframes gogogo{
+            0% {
+                transform:translate(-50%, -100%) rotateZ(0deg);
+            }
+            100% {
+                transform:translate(-50%, -100%) rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="hidden"></div>
+
+        <div class="hour"></div>
+        <div class="min"></div>
+        <div class="sce"></div>
+        <div class="center"></div>
+    </div>
+</body>
+
+</html>
