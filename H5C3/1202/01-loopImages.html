@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            width: 560px;
+            height: 300px;
+            margin: 100px auto;
+            list-style: none;
+            transform-style: preserve-3d;
+            /* transform: rotate3d(1, 1, 0, -40deg); */
+            position: relative;
+        }
+
+        ul li {
+            position: relative;
+            width: 20%;
+            height: 100%;
+            float: left;
+            transition-duration: 1s;
+            transform-style: preserve-3d;
+        }
+
+        ul li span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        ul li span:nth-of-type(1) {
+            background-image: url("./images/q1.jpg");
+            transform: translateZ(150px);
+        }
+
+        ul li:nth-of-type(2) span {
+            background-position-x: 25%;
+        }
+
+        ul li:nth-of-type(3) span {
+            background-position-x: 50%;
+        }
+
+        ul li:nth-of-type(4) span {
+            background-position-x: 75%;
+        }
+
+        ul li:nth-of-type(5) span {
+            background-position-x: 100%;
+        }
+
+        ul li span:nth-of-type(2) {
+            background-image: url("./images/q2.jpg");
+            transform: translateY(-150px) rotateX(90deg);
+        }
+
+        ul li span:nth-of-type(3) {
+            background-image: url("./images/q3.jpg");
+            transform: translateZ(-150px) rotateX(180deg);
+        }
+
+        ul li span:nth-of-type(4) {
+            background-image: url("./images/q4.jpg");
+            transform: translateY(150px) rotateX(-90deg);
+        }
+
+        .left,
+        .right {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            background-color: rgb(154, 172, 162);
+            top: 50%;
+            transform: translate3d(0, -50%, 250px);
+            font-size: 40px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .right {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <div class="left"> &lt; </div>
+        <div class="right"> &gt;</div>
+        <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </li>
+        <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </li>
+        <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </li>
+        <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </li>
+        <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </li>
+    </ul>
+    <script>
+        var left = document.querySelector(".left");
+        var right = document.querySelector(".right");
+        var lis = document.querySelectorAll("li");
+        var i = 0;
+        var status = true;
+        left.onclick = function () {
+            if (status === "true") {
+                status = false;
+                i--;
+                getRotate();
+            }
+        }
+        right.onclick = function () {
+            if (status === "true") {
+                status = false;
+                i++;
+                getRotate();
+            }
+        }
+
+        function getRotate() {
+            for (let index = 0; index < lis.length; index++) {
+                const element = lis[index];
+                element.style.transitionDelay = index * 0.2 + 's';
+                element.style.transform = "rotateX(" + -i * 90 + "deg)";
+            }
+            setTimeout(() => {
+                status = true;
+            }, 1500);
+        }
+    </script>
+</body>
+
+</html>
