@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 40px;
+            height: 40px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" id="btn" value="移动400">
+    <div class="box"></div>
+    <script>
+        var btn = document.querySelector('#btn');
+        var box = document.querySelector('.box');
+        var count = 0;
+        var timeId = null;
+        btn.onclick = function() {
+            if (timeId) {
+                clearInterval(timeId);
+                timeId = null;
+            }
+            timeId = setInterval(function() {
+                var step = 10;
+                var target = 400;
+                if (count >= target) {
+                    clearInterval(timeId);
+                    box.style.left = 400 + 'px';
+                    return;
+                }
+                count += step;
+                box.style.left = count + 'px';
+                console.log(count);
+            }, 30)
+        }
+    </script>
+</body>
+
+</html>

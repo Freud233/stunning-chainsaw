@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 300px;
+            height: 500px;
+            border: 1px solid red;
+            margin: 100px;
+            position: relative;
+            overflow: hidden;
+            /* 不让文字被选中 */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .content {
+            padding: 5px 18px 5px 5px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .scroll {
+            width: 18px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #eee;
+        }
+        
+        .bar {
+            height: 100px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: red;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <div class="content" id="content">
+            我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容， 我是文字内容，我是文字内容，我是文字内容，
+
+        </div>
+        <div class="scroll" id="scroll">
+            <div class="bar" id="bar"></div>
+        </div>
+    </div>
+    <script>
+        var box = document.querySelector('#box');
+        var content = document.querySelector('#content');
+        var scroll = document.querySelector('#scroll');
+        var bar = document.querySelector('#bar');
+        //1 根据内容的大小，计算滚动条的高度
+        //  滚动条的高度 / scroll的高度 = box的高度 / 内容的高度
+        // offsetHeight     元素的大小 + padding + border
+        // clientHeight     元素的大小 + padding
+        // scrollHeight     内容的大小 + padding
+
+        var barHeight = 0;
+        if (content.offsetHeight > box.offsetHeight) {
+            barHeight = box.clientHeight / content.scrollHeight * scroll.clientHeight;
+        }
+        bar.style.height = barHeight + 'px';
+
+
+        bar.onmousedown = function(e) {
+            var y = e.pageY - box.offsetTop - bar.offsetTop;
+            // console.log(y);
+            document.onmousemove = function(e) {
+
+                var barY = e.pageY - y - box.offsetTop;
+                barY = barY < 0 ? 0 : barY;
+                barY = barY > scroll.clientHeight - bar.clientHeight ? scroll.clientHeight - bar.clientHeight : barY;
+                bar.style.top = barY + 'px';
+                var contentMax = content.scrollHeight - box.offsetHeight;
+                console.log('contentMax' + contentMax);
+
+                var barMax = scroll.clientHeight - bar.clientHeight;
+                console.log('barMax' + barMax);
+
+                var contentY = barY / barMax * contentMax;
+                console.log('contentY' + contentY);
+
+                content.style.top = -contentY + 'px';
+            }
+
+
+        }
+        document.onmouseup = function() {
+            document.onmousemove = null;
+        }
+    </script>
+</body>
+
+</html>

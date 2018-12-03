@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+        
+        .all {
+            width: 500px;
+            height: 200px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+        
+        .screen {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .screen li {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+        
+        .screen ul {
+            position: absolute;
+            left: 0;
+            top: 0px;
+            width: 3000px;
+        }
+        
+        .all ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+        
+        .all ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        
+        .all ol li.current {
+            background: yellow;
+        }
+        
+        #arr {
+            display: none;
+            z-index: 1000;
+        }
+        
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+        
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+    </style>
+    <script src="animate.js"></script>
+</head>
+
+<body>
+    <div class="all" id='box'>
+        <div class="screen">
+            <ul>
+                <li><img src="images/wf1.jpg" width="500" height="200" /></li>
+                <li><img src="images/wf2.jpg" width="500" height="200" /></li>
+                <li><img src="images/wf3.jpg" width="500" height="200" /></li>
+                <li><img src="images/wf4.jpg" width="500" height="200" /></li>
+                <li><img src="images/wf5.jpg" width="500" height="200" /></li>
+            </ul>
+            <ol>
+            </ol>
+        </div>
+        <div id="arr"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+    </div>
+    <script src="animate.js"></script>
+    <script>
+        // 1. 鼠标移入,让左右箭头显示
+        // 2. 鼠标离开,让左右箭头消失
+        // 3. 点击右箭头, 让ul向左移动
+        // 4. 点击左箭头, 让ul向右移动
+        // 5. 点击轮播图圆点 让ul盒子移动到对应的图片上(需要自定义属性)
+        // 6. 定时器切换到下一张图
+        // 7. 鼠标移入大盒子停止定时器,移出开始定时器
+        // 8. 左右箭头通过变量记录索引,焦点通过自定义添加属性, 索引和焦点要同步
+        // 9. 无缝滚动
+        // 获取元素
+
+        var ul = document.querySelector('ul');
+        var ol = document.querySelector('ol');
+        var screen = document.querySelector('.screen');
+        var box = document.querySelector('#box');
+        var arr = document.querySelector('#arr');
+        var arrLeft = document.querySelector('#left');
+        var arrRight = document.querySelector('#right');
+
+        for (var i = 0; i < ul.children.length; i++) {
+            var li = document.createElement('li');
+            li.innerText = i + 1;
+            console.log(li);
+            ol.appendChild(li);
+            li.setAttribute('index', i);
+            li.onclick = liClick;
+        }
+        var imgWidth = screen.offsetWidth;
+
+
+        function liClick() {
+            for (var i = 0; i < ul.children.length - 1; i++) {
+                ol.children[i].className = '';
+            }
+            var index = this.getAttribute('index');
+            animate(ul, -index * imgWidth)
+            this.className = 'current';
+        }
+        ol.children[0].className = 'current';
+
+        box.onmouseover = function() {
+            arr.style.display = 'block';
+        }
+
+        box.onmouseout = function() {
+            arr.style.display = 'none';
+        }
+        var index = 0;
+
+        arrRight.onclick = function() {
+            if (index == ul.children.length - 1) {
+                ul.style.left = 0;
+                index = 0;
+            }
+            index++;
+            if (index < ul.children.length - 1) {
+                ol.children[index].click();
+            } else {
+                animate(ul, -index * imgWidth);
+                for (var i = 0; i < ol.children.length; i++) {
+                    var li = ol.children[i];
+                    li.className = '';
+                }
+                ol.children[0].className = 'current';
+            }
+            // ol.children[index].click();
+        }
+
+        //克隆
+        var liClone = ul.children[0].cloneNode(true);
+        ul.appendChild(liClone);
+        //21:48
+    </script>
+</body>
+
+</html>

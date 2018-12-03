@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 350px;
+            height: 350px;
+            margin: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+        
+        .big {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+        
+        .big img {
+            position: absolute;
+        }
+        
+        .mask {
+            width: 175px;
+            height: 175px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            cursor: move;
+            display: none;
+        }
+        
+        .small {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <div class="small">
+            <img src="images/small.webp" width="350" alt="" />
+
+            <div class="mask"></div>
+        </div>
+        <div class="big">
+            <img src="images/big.jpg" width="800" alt="" />
+        </div>
+    </div>
+    <script>
+        //1. 鼠标移入box 显示mask 和 bigbox
+        var box = document.querySelector('.box');
+        var small = document.querySelector('.small');
+        var smallImage = small.children[0];
+        var mask = document.querySelector('.mask');
+        var big = document.querySelector('.big');
+        var bigImage = big.children[0];
+        small.onmouseover = function() {
+            mask.style.display = 'block';
+            big.style.display = 'block';
+            document.onmousemove = function(e) {
+                var maskX = e.pageX - box.offsetLeft;
+                var maskY = e.pageY - box.offsetTop;
+
+                maskX = maskX - mask.offsetWidth / 2;
+                maskY = maskY - mask.offsetHeight / 2;
+
+                maskX = maskX < 0 ? 0 : maskX;
+                maskY = maskY < 0 ? 0 : maskY;
+
+                maskX = maskX > box.offsetWidth - mask.offsetWidth ? box.offsetWidth - mask.offsetWidth : maskX;
+                maskY = maskY > box.offsetHeight - mask.offsetHeight ? box.offsetHeight - mask.offsetHeight : maskY;
+
+                mask.style.left = maskX + 'px';
+                mask.style.top = maskY + 'px';
+
+                bigImage.style.left = -maskX / (box.offsetHeight - mask.offsetHeight) * (bigImage.offsetWidth - big.offsetWidth) + 'px';
+                bigImage.style.top = -maskY / (box.offsetHeight - mask.offsetHeight) * (bigImage.offsetWidth - big.offsetWidth) + 'px';
+            }
+        }
+    </script>
+</body>
+
+</html>
