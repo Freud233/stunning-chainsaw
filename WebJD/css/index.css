@@ -1,0 +1,176 @@
+
+.jd_wrap {
+    margin: 0 auto;
+    background-color: #666;
+    max-width: 640px;
+    min-width: 320px;
+    position: relative;
+    height: 1500px;
+}
+
+/* 搜索栏 */
+
+.jd_top {
+    width: 100%;
+    max-width: 640px;
+    min-width: 320px;
+    background-color: red;
+    position: fixed;
+    z-index: 2;
+}
+
+.jd_top .jd_logo {
+    margin-left: 10px;
+    width: 60px;
+    height: 40px;
+    position: absolute;
+    background: url("../images/jd-sprites200-200.png") 0 97px;
+}
+
+.jd_top .jd_login {
+    height: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 10px;
+}
+
+.jd_top .jd_login a {
+    margin-right: 10px;
+    line-height: 40px;
+    color: #fff;
+}
+
+.jd_top .jd_search {
+    margin: 0 auto;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.jd_top .jd_search input {
+    height: 30px;
+    margin: 5px 0;
+    width: 100%;
+    border-radius: 15px;
+    border: 1px solid #666;
+    padding-left: 30px;
+    color: #666;
+    line-height: 30px;
+}
+
+.jd_top .jd_search::before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 10px;
+    background-color: blue;
+    background: url("../images/jd-sprites200-200.png") no-repeat -56px -108px;
+}
+
+/* 轮播图 */
+.jd_banner {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.jd_bannerImg {
+    width: 800%;
+    background-color: red;
+}
+
+.jd_bannerImg li {
+    width: 12.5%;
+    float: left;
+}
+
+.jd_bannerImg li img{
+    width: 100%;
+    display: block;
+}
+
+.jd_bannerList {
+    width: 130px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 4px;
+}
+
+.jd_bannerList li {
+    width: 10px;
+    height: 10px;
+    background-color: #666;
+    border-radius: 50%;
+    margin: 3px;
+    float: left;
+}
+
+.jd_bannerList li.active {
+    color: #fff;
+}
+
+/* 导航栏 */
+
+.jd_nav {
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.jd_navItem {
+    margin-top: 10px;
+    width: 25%;
+}
+
+.jd_navItem a {
+    margin: 0 auto;
+    display: block;
+    width: 35%;
+}
+
+.jd_navItem img {
+    width: 100%;
+}
+
+.jd_navItem p {
+    margin-top: 5px;
+}
+
+/* 京东超市 */
+.jd_sm {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+.jd_sm_title {
+    width: 100%;
+    position: relative;
+}
+
+.jd_sm_title h3 {
+    margin: 5px 0;
+    padding-left: 30px;
+    color: rgb(47, 182, 114);
+}
+
+.jd_sm_title h3::before {
+    content: "";
+    width: 5px;
+    height: 20px;
+    background-color: red;
+    position: absolute;
+    left: 20px;
+    top: 3px;
+}
+
+.jd_sm_box {
+    width: 100%;
+}
+
+.jd_sm_box img {
+    display: block;
+    width: 100%;
+}

@@ -1,0 +1,42 @@
+/* 清楚默认样式 */
+
+html,body,div,ul,li,a,h1,h2,h3,h4,h5,h6,input,p,img {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul,li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.jd_l {
+    float: left;
+}
+
+.jd_r {
+    float: right;
+}
+
+.clearfloat::before,
+.clearfloat::after {
+    content: "";
+    clear: both;
+}
+
+.a_50 {
+    width: 50%;
+    display: block;
+}
+
+.b_bottom {
+    border-bottom: 1px solid #ccc;
+}
+
+.b_left {
+    border-bottom: 1px solid #ccc;
+}
