@@ -14,7 +14,7 @@
     width: 100%;
     max-width: 640px;
     min-width: 320px;
-    background-color: red;
+    background-color: rgb(233, 34, 35, 0);
     position: fixed;
     z-index: 2;
 }
@@ -56,6 +56,7 @@
     padding-left: 30px;
     color: #666;
     line-height: 30px;
+    outline: none;
 }
 
 .jd_top .jd_search::before {
@@ -71,17 +72,22 @@
 /* 轮播图 */
 .jd_banner {
     width: 100%;
-    overflow: hidden;
     position: relative;
 }
 
+.jd_banner_content {
+    width: 100%;
+    overflow: hidden;
+}
+
 .jd_bannerImg {
-    width: 800%;
+    /* width: 800%; */
     background-color: red;
+    position: relative;
 }
 
 .jd_bannerImg li {
-    width: 12.5%;
+    /* width: 12.5%; */
     float: left;
 }
 
@@ -108,15 +114,16 @@
 }
 
 .jd_bannerList li.active {
-    color: #fff;
+    background-color: #fff;
 }
 
 /* 导航栏 */
 
 .jd_nav {
     width: 100%;
-    margin: 20px 0;
+    padding: 20px 0;
     text-align: center;
+    background-color: #fff;
 }
 
 .jd_navItem {
@@ -140,8 +147,8 @@
 
 /* 京东超市 */
 .jd_sm {
+    margin: 20px 0;
     width: 100%;
-    margin-top: 20px;
     background-color: #fff;
 }
 
@@ -174,3 +181,43 @@
     display: block;
     width: 100%;
 }
+
+/* 京东秒杀 */
+
+.jd_sk {
+    padding: 4px 0;
+    margin: 10px 0;
+}
+
+.jd_sk_title {
+    color: red;
+    margin: 0 5px;
+}
+
+.jd_sk_l_clock {
+    margin-left: 20px;
+    margin-right: 5px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid red;
+    background: url("../images/jd-sprites200-200.png") no-repeat -83px -110px;
+}
+
+.js_sk_l_time span {
+    float: left;
+    display: block;
+    padding: 0 3px;
+    margin-right:3px;
+    background-color: #666;
+}
+
+.js_sk_l_time span:nth-of-type(3n) {
+    background-color: #fff;
+}
+
+.jd_sk_r {
+    margin-right: 10px;
+}
+
+

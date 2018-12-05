@@ -25,7 +25,12 @@ a {
 .clearfloat::before,
 .clearfloat::after {
     content: "";
+    width: 0;
+    height: 0;
+    line-height: 0;
+    display: block;
     clear: both;
+    visibility: hidden;
 }
 
 .a_50 {

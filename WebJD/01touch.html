@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        let div = document.querySelector("div");
+        div.addEventListener("touchstart", function (e) {
+            console.log(e.targetTouches[0].clientX, e.targetTouches[0].clientX);
+            x = e.targetTouches[0].clientX;
+            y = e.targetTouches[0].clientY;
+            // let divLeft = div.offsetLeft;
+            // let divTop = div.offsetTop;
+        })
+
+        div.addEventListener("touchmove", function (e) {
+            let left = e.targetTouches[0].clientX - x;
+            let top = e.targetTouches[0].clientY - y;
+            div.style.transform = "translate(" + left  + "px," + top  + "px)";
+            // div.style.left = e.targetTouches[0].clientX - x + divLeft + "px";
+            // div.style.top = e.targetTouches[0].clientY - y + divTop + "px";
+        })
+
+        var currentLeft;
+        var currentTop;
+        div.addEventListener("touchend", function (e) {
+            console.log(div.style.transform);
+            
+            // currentLeft = div.offsetLeft;
+            // currentTop = div.offsetTop;
+        })
+    </script>
+</body>
+
+</html>
