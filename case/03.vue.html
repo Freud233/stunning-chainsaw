@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{ message }}</p>
+        <p v-if="seen">看得见吗</p>
+        <p v-on:click="reverse">9999999999</p>
+        <ol>
+            <li v-for="list in todos">
+                {{ list.title }}
+            </li>
+        </ol>
+        <input type="text" v-model="message">
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: "hello world",
+                seen: false,
+                todos: [
+                    {title: "学习学习学习"},
+                    {title: "学习学习学习"},
+                    {title: "学习学习学习"},
+                    {title: "学习学习学习"}
+                ],             
+            },
+            methods: {
+                    getAlert: function(){
+                        this.seen = true;
+                    },
+                    reverse: function() {
+                        this.message = this.message.split("").reverse().join(",");
+                    }
+                }
+        })
+    </script>
+</body>
+</html>

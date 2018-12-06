@@ -43,7 +43,6 @@ function timeBack() {
 // 轮播图效果
 function bannerEffect() {
     let bannerWidth = document.querySelector(".jd_banner_content").offsetWidth;
-
     let ul = document.querySelector(".jd_bannerImg");
     let btns = document.querySelector(".jd_bannerList");
     let firstLi = ul.querySelector("li:first-of-type");
@@ -51,9 +50,6 @@ function bannerEffect() {
     ul.appendChild(firstLi.cloneNode(true), lastLi);
     ul.insertBefore(lastLi.cloneNode(true), firstLi);
     let lisList = ul.querySelectorAll("li");
-    // console.log(bannerWidth * lisList.length);
-
-
 
     ul.style.width = bannerWidth * lisList.length + "px";
     for (let index = 0; index < lisList.length; index++) {
@@ -67,7 +63,7 @@ function bannerEffect() {
         for (let index = 0; index < lisList.length; index++) {
             const element = lisList[index];
             element.style.width = bannerWidth + "px";
-            ul.style.left = -bannerWidth + "px";
+            ul.style.width = bannerWidth * lisList.length + "px";
         }
     }
 
@@ -75,7 +71,7 @@ function bannerEffect() {
     let count = 1;
 
     function getTranslate() {
-        if(count == 0){
+        if (count == 0) {
             count = 9;
             liCurrent();
             ul.style.transition = "none";
@@ -90,41 +86,29 @@ function bannerEffect() {
                     count = 1;
                     ul.style.transition = "none";
                     ul.style.left = -bannerWidth * count + "px";
-                    // liCurrent();
                 }
             }, 700);
             liCurrent();
-
         }, 1000);
     }
 
     // 轮播按钮高亮
-    function liCurrent(){
+    function liCurrent() {
         for (let index = 0; index < btns.children.length; index++) {
             const element = btns.children[index];
             element.className = "";
         }
-        if(count == 9){
+        if (count == 9) {
             btns.children[0].className = "active";
-        } else if (count == 0){
+        } else if (count == 0) {
             btns.lastElementChild.className = "active";
 
-        }else {
+        } else {
             btns.children[count - 1].className = "active";
         }
-       
-
     }
-
-    console.log(btns);
-    
+  
     // 按钮标签
-    // for (let index = 0; index < btns.children.length; index++) {
-    //     const element = btns.children[index];
-    //     element.className = "";
-    //     console.log(123);
-    // }
-    // console.log(btns.children[count]);
 
     getTranslate();
     ul.addEventListener("touchstart", function (e) {
@@ -132,11 +116,11 @@ function bannerEffect() {
         clearInterval(timer);
         x = e.targetTouches[0].clientX;
     })
+
     let moveX;
     ul.addEventListener("touchmove", function (e) {
         moveX = e.targetTouches[0].clientX - x;
         ul.style.left = -bannerWidth * count + moveX + "px";
-
     })
 
     ul.addEventListener("touchend", function (e) {
@@ -159,8 +143,7 @@ function bannerEffect() {
                 ul.style.left = -bannerWidth * count + "px";
             }
         }
-        // console.log(count);
-        
+
         getTranslate();
         liCurrent();
 
