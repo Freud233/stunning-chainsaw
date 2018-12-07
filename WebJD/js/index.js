@@ -72,7 +72,13 @@ function bannerEffect() {
 
     function getTranslate() {
         if (count == 0) {
-            count = 9;
+            count = 8;
+            liCurrent();
+            ul.style.transition = "none";
+            ul.style.left = -bannerWidth * count + "px";
+        }
+        if (count == 9) {
+            count = 1;
             liCurrent();
             ul.style.transition = "none";
             ul.style.left = -bannerWidth * count + "px";
@@ -102,14 +108,13 @@ function bannerEffect() {
             btns.children[0].className = "active";
         } else if (count == 0) {
             btns.lastElementChild.className = "active";
-
         } else {
             btns.children[count - 1].className = "active";
         }
     }
-  
-    // 按钮标签
 
+    // 按钮标签
+    let isOver = true;  // 节流阀标识符
     getTranslate();
     ul.addEventListener("touchstart", function (e) {
         ul.style.transition = "none";
@@ -119,33 +124,51 @@ function bannerEffect() {
 
     let moveX;
     ul.addEventListener("touchmove", function (e) {
-        moveX = e.targetTouches[0].clientX - x;
-        ul.style.left = -bannerWidth * count + moveX + "px";
+        if (isOver == true) {
+            moveX = e.targetTouches[0].clientX - x;
+            ul.style.left = -bannerWidth * count + moveX + "px";
+            console.log(moveX, 123);
+            
+        }
     })
 
     ul.addEventListener("touchend", function (e) {
+        clearInterval(timer); // 清除上一次的定时器,否则定时器会叠加
+    
+        
         if (moveX > 0) {
             if (moveX < (bannerWidth / 2)) {
-                ul.style.transition = "0.7s";
+                ul.style.transition = "0.3s";
                 ul.style.left = -bannerWidth * count + "px";
             } else {
-                ul.style.transition = "0.7s";
+                ul.style.transition = "0.3s";
                 count--;
                 ul.style.left = -bannerWidth * count + "px";
             }
         } else if (moveX < 0) {
             if (Math.abs(moveX) < (bannerWidth / 2)) {
-                ul.style.transition = "0.7s";
+                ul.style.transition = "0.3s";
                 ul.style.left = -bannerWidth * count + "px";
             } else {
-                ul.style.transition = "0.7s";
+                ul.style.transition = "0.3s";
                 count++;
                 ul.style.left = -bannerWidth * count + "px";
             }
         }
+        moveX = 0;  // 清除上一次移动的距离, 节流过程中不再移动 banner图
+        x = 0;
+        isOver = false;
 
-        getTranslate();
         liCurrent();
-
+        // 如果两次滑动的时间间隔小于定时器时间,
+        setTimeout(() => {
+            clearInterval(timer);
+            console.log();
+            
+            setTimeout(() => {
+            getTranslate();
+                isOver = true;  // 在过渡效果结束之后0.5s再开启移动效果;
+            }, 500);
+        }, 300);
     })
 }

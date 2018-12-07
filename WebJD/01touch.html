@@ -44,7 +44,10 @@
         var currentLeft;
         var currentTop;
         div.addEventListener("touchend", function (e) {
-            console.log(div.style.transform);
+            distance = div.style.transform.indexOf("(");
+            comma = div.style.transform.indexOf(",");
+            initx = div.style.transform.slice(distance + 1,comma)
+            console.log(initx);
             
             // currentLeft = div.offsetLeft;
             // currentTop = div.offsetTop;
