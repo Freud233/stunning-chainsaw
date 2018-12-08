@@ -81,11 +81,13 @@ html,body {
     width: 100px;
     float: left;
     overflow: hidden;
+    position: relative;
 }
 
 .main_l ul {
     width: 100%;
     text-align: center;
+    position: absolute;
 }
 
 .main_l ul li {
@@ -94,7 +96,7 @@ html,body {
     height: 50px;
     background-color: #ccc;
     border-bottom: 1px solid #000;
-    border-right: 1px solid #000;
+    /* border-right: 1px solid #000; */
 }
 
 .main_l ul li.active {
@@ -102,9 +104,9 @@ html,body {
 }
 
 .main_l ul li.active a {
+    user-select: none;
     color: red;
 }
-
 
 /* main右边 */
 .main_r {
@@ -126,6 +128,7 @@ html,body {
 }
 
 .hotCategory {
+    position: relative;
     text-align: center;
     flex:  1;
 }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        let div = document.querySelector("div");
+        let startTime;
+        div.addEventListener("touchstart", function(e){
+            startTime = Date.now();
+            startX = e.targetTouches[0].clientX;
+            startY = e.targetTouches[0].clientY;
+        })
+
+          div.addEventListener("touchend", function(e){
+            endX = e.changedTouches[0].clientX;
+            endY = e.changedTouches[0].clientY;
+              if(e.changedTouches.length > 1){
+                  console.log("手指多于一个");
+                  return;
+              }
+              if(Date.now() - startTime > 200){
+                  console.log(Date.now() - startTime , "Date.now() - startTime");
+                  return;
+              }
+              if(endX - startX < 10 && endY - startY < 10){
+                  console.log("这是一个tap事件");
+              }
+        })
+    </script>
+</body>
+</html>
