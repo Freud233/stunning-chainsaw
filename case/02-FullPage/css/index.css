@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* 第一屏 */
+.section:nth-of-type(1) {
+    padding: 100px;
+}
+
+.logo {
+    width: 251px;
+    height: 186px;
+    background: url("../images/logo.png");
+    margin:  auto;
+}
+
+.text {
+    width: 100%;
+    margin: 60px;
+    text-align: center;
+}
+
+.text > img {
+    margin-right: 50px;
+}
+
+.title {
+    margin: 0 auto;
+    width: 772px;
+    height: 49px;
+    background: url("../images/info_1.png");
+}
+
+/* 第二屏 */
+
+.section:nth-of-type(2) {
+    position: relative;
+}
+.shield {
+    position: absolute;
+    width: 500px;
+    border: 1px solid red;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-130%, -50%);
+}
+
+.two-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(0, -50%);
+    width: 635px;
+    height: 309px;
+    background: url("../images/info_2.png")
+}
