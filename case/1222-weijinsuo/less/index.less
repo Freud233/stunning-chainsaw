@@ -23,6 +23,7 @@
 }
 
 .wjs_nav {
+    margin-bottom: 5px;
     >.container {
         >.navbar-header{
             >.navbar-toggle {
@@ -54,6 +55,171 @@
                 .active > a {
                     border-bottom: 3px solid #e92322;
                     background-color: transparent;
+                }
+            }
+        }
+    }
+}
+// 轮播图
+.banner {
+    width: 100%;    
+    .carousel-inner {
+        width: 100%;
+        >.item {           
+            .pcImg {
+                display: block;
+                height: 410px;
+                width: 100%;
+                background-position: center center;
+                background-size: cover;
+            }
+            img {
+                width: 100%;
+            }
+        }
+    } 
+}
+// 信息块
+.wjs_info {
+    margin: 20px;
+    .container {
+        .row {
+            .col-md-4{
+                cursor: pointer;
+                margin-top: 10px;
+                position: relative;
+                span {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: 30px;
+                }
+                h4,p {
+                    user-select: none;
+                    padding-left: 33px;
+                }
+                &:hover {
+                    color: #e92322;
+                }
+            }
+        }
+    }
+}
+
+// 企业宣传
+.wjs_publicity {
+    height: 60px;
+    line-height: 60px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    .container {
+        .row {
+            .col-sm-9{
+                a:nth-of-type(1):hover {
+                    color: #e92322;
+                }
+                a:nth-of-type(2) {
+                    color: #e92322;
+                    border-bottom: 1px dashed #e92322;
+                }
+            }
+            .col-sm-3 {
+                a:hover {
+                    color: #e92322;
+                }
+            }
+        }
+    }
+}
+
+// 产品 
+.wjs_product {
+    width: 100%;
+    background-color: #eee;
+    >.container {
+        >.product_nav {
+            >.product_list {
+                margin-left: -40px;
+                height: 80px;
+                margin-top: 20px;
+                background-color: #eee;
+                li {
+                    list-style: none;
+                    float: left;
+                    >a {
+                        padding: 25px;
+                        line-height: 50px;
+                        &:hover {
+                            border-bottom: 3px solid #e92322;
+                        }
+                    }
+                }
+                .active > a {
+                    border-bottom: 3px solid #e92322;
+                    background-color: transparent;
+                }
+               
+            }
+        }
+    }
+}
+
+.product_content_wrap {
+    background-color: red;
+}
+.wjs_product {
+    >.container {
+        >.row {
+            color: #fff;
+            .product_content {
+                height: 150px;
+                background-color: #e92322;
+                // margin-top: 10px;
+                .product_content_l {
+                    float: left;
+                    width: 70%;
+                    &::after,&::before {
+                        content: " ";
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        background-color: #fff;
+                        position: absolute;
+                    }
+                    &::before {
+                        right: 117px;
+                        top: -5px;
+                    }
+                    &::after {
+                        right: 117px;
+                        bottom: 0;
+                    }
+                    .product_content_l_t {
+                        margin-top: 15px;
+                        font-size: 16px;
+                        text-align: center;     
+                    }
+                    .row {
+                        padding: 0 5px;
+                        font-size: 12px;
+                        .col-xs-6:nth-of-type(odd) {
+                            text-align: left;
+                        }
+                        .col-xs-6:nth-of-type(even) {
+                            text-align: right;
+                        }
+                    }
+                }
+                .product_content_r {
+                    text-align: center;
+                    padding-top: 10px;
+                    float: left;
+                    width: 30%;
+                    height: 100%;
+                    border-left: 1px dashed #fff;
+                    >b{
+                        font-size: 60px;
+                    }
                 }
             }
         }
