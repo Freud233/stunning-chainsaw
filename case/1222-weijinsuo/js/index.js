@@ -1,4 +1,5 @@
 $(function(){
+    FastClick.attach(document.body);   //fastclick 初始化
     let items = $(".carousel-inner .item");
     $(window).on("resize", function(){
         let width = $("html").width();
@@ -14,4 +15,13 @@ $(function(){
             })
         }
     }).trigger("resize");
+
+    //推荐投资tab切换
+    let divs = $(".wsj_product_wrap .wjs_product");
+    $(".product_list").on("click", "li", function(){
+       divs.each(function(index, value){
+            value.classList.remove("wjs_product_active");
+       })
+       divs.eq($(this).data("liIndex") - 1).addClass("wjs_product_active");
+    })
 })
