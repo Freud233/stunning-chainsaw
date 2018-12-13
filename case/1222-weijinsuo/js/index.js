@@ -1,4 +1,5 @@
 $(function(){
+    $('[data-toggle="tooltip"]').tooltip(); // 提示工具初始化
     FastClick.attach(document.body);   //fastclick 初始化
     let items = $(".carousel-inner .item");
     $(window).on("resize", function(){
@@ -16,6 +17,10 @@ $(function(){
         }
     }).trigger("resize");
 
+    // 轮播图
+    let slideshow = $('.carousel').get(0);
+    console.log(slideshow);
+    
     //推荐投资tab切换
     let divs = $(".wsj_product_wrap .wjs_product");
     $(".product_list").on("click", "li", function(){
@@ -24,4 +29,14 @@ $(function(){
        })
        divs.eq($(this).data("liIndex") - 1).addClass("wjs_product_active");
     })
+
+    //产品水平滑动
+    let ul = $(".product_list");
+    let lis = ul.find("li");
+    let ulWidth = 0;
+    lis.each(function(){
+       ulWidth +=$(this).outerWidth(true);
+        ul.width(ulWidth);
+    })
+    
 })
