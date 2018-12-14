@@ -132,13 +132,8 @@
   border-bottom: 3px solid #e92322;
   background-color: transparent;
 }
-.wjs_product_section > .container > .wsj_product_wrap {
-  height: 380px;
-  position: relative;
-}
 .wjs_product_section > .container > .wsj_product_wrap .wjs_product {
   display: none;
-  position: absolute;
 }
 .wjs_product_section > .container > .wsj_product_wrap .wjs_product > .container > .row .product_content {
   width: 100%;
