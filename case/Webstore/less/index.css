@@ -6,27 +6,28 @@
 a {
   text-decoration: none;
 }
-body,
-html {
-  width: 100%;
-  height: 100%;
-  max-width: 640px;
-  min-width: 320px;
+::placeholder {
+  color: #fff;
 }
 .lolyo {
-  width: 100%;
-  height: 100%;
+  max-width: 640px;
+  min-width: 320px;
+  margin: 0 auto;
+  padding-bottom: 1rem;
 }
 .lolyo header {
+  position: fixed;
   text-align: center;
   position: relative;
   width: 100%;
   height: 0.85rem;
+  margin: 0 auto;
   background-color: #09f;
 }
 .lolyo header a {
   color: #fff;
   position: absolute;
+  top: 0;
   height: 100%;
 }
 .lolyo header a:nth-child(1) {
@@ -44,4 +45,150 @@ html {
 }
 .lolyo header a:nth-child(3) p:nth-child(1) {
   font-size: 0.40rem;
+}
+.lolyo header form {
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  height: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.25rem;
+}
+.lolyo header form span {
+  color: #fff;
+  font-size: 0.3rem;
+  position: absolute;
+  left: 1.63rem;
+  top: 0.3rem;
+}
+.lolyo header form input {
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+  border: 1px solid #eee;
+  background: #09f;
+  padding-left: 0.5rem;
+  margin: 0 auto;
+  display: block;
+  height: 0.425rem;
+}
+.lolyo nav {
+  width: 100%;
+}
+.lolyo nav .nav_title {
+  background-color: #fff;
+  padding-left: 0.15rem;
+  position: relative;
+}
+.lolyo nav .nav_title img {
+  position: absolute;
+  width: 0.34rem;
+  float: left;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.lolyo nav .nav_title h3 {
+  height: 0.65rem;
+  padding-left: 0.5rem;
+  font-size: 0.25rem;
+  line-height: 0.65rem;
+  color: #333;
+}
+.lolyo nav .nav_item {
+  overflow: hidden;
+  text-align: center;
+  font-size: 0.18rem;
+}
+.lolyo nav .nav_item a {
+  box-sizing: border-box;
+  margin: 0.05rem;
+  padding-top: 0.15rem;
+  width: 1.5rem;
+  height: 1rem;
+  float: left;
+  background-color: #fafafa;
+}
+.lolyo nav .nav_item a img {
+  width: 0.5rem;
+}
+.lolyo nav .nav_item a p {
+  color: #333;
+  margin-top: -0.04rem;
+}
+.lolyo nav .nav_btn {
+  text-align: center;
+  height: 0.4rem;
+  position: relative;
+}
+.lolyo nav .nav_btn::before,
+.lolyo nav .nav_btn::after {
+  content: " ";
+  width: 0.15rem;
+  height: 0.15rem;
+  background-color: #e6e6e6;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #09f;
+  top: 50%;
+  left: 50%;
+  transform: translate(-200%, -50%);
+  cursor: pointer;
+}
+.lolyo nav .nav_btn::after {
+  transform: translate(100%, -50%);
+  background-color: #e6e6e6;
+}
+.lolyo .section_recommend .recommend_title {
+  background-color: #fff;
+  padding-left: 0.15rem;
+  position: relative;
+}
+.lolyo .section_recommend .recommend_title img {
+  position: absolute;
+  width: 0.34rem;
+  float: left;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.lolyo .section_recommend .recommend_title h3 {
+  font-size: 0.25rem;
+  height: 0.65rem;
+  padding-left: 0.5rem;
+  line-height: 0.65rem;
+  color: #333;
+}
+.lolyo .section_recommend .recommend_title span {
+  cursor: pointer;
+  position: absolute;
+  font-size: 0.2rem;
+  color: #999;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0.2rem;
+}
+.lolyo .section_recommend ul {
+  width: 100%;
+}
+.lolyo .section_recommend ul img {
+  width: 6.4rem;
+}
+.lolyo footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  max-width: 640px;
+  min-width: 320px;
+  height: 0.9rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.lolyo footer a {
+  flex: 1;
+  text-align: center;
+  font-size: 0.18rem;
+  color: #666666;
 }
