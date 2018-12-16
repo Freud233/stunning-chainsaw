@@ -1,0 +1,53 @@
+@import "./base.less";
+a {
+    color: #000;
+}
+ul,li {
+    margin: 0;
+    padding: 0;
+}
+.category_content {
+    width: 100%;
+    position: absolute;
+    top: 44px;
+    bottom: 50px;
+    .category_left {
+        float: left;
+        height: 100%;
+        width: 100px;
+        overflow: hidden;
+        .category_left_ul {
+            padding: 0;
+            margin: 0;
+            width: 80px;
+            a {
+                display: block;
+                width: 100%;
+                height: 45px;
+                line-height: 45px;
+                text-align: center;
+                font-size: 14px;
+                border-right: 1px solid #e0e0e0;
+                border-bottom: 1px solid #e0e0e0;
+            }
+        }
+    }
+    .category_right {
+        margin-left: 100px;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        >.mui-scroll-wrapper {
+            .category_right_ul {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                text-align: center;
+                li {
+                    flex: 1;
+                }
+            }
+        }
+       
+    }
+}

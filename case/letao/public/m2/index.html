@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Hello MUI</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<!--标准mui.css-->
+	<link rel="stylesheet" href="../m/assets/mui/css/mui.min.css">
+	<link type="image/x-icon" rel="shortcut icon" href="../m/images/favicon.ico">
+	<!--App自定义的css-->
+	<link rel="stylesheet" href="./less/index.css">
+	<style>
+		.title {
+			margin: 20px 15px 10px;
+			color: #6d6d72;
+			font-size: 15px;
+		}
+
+		.oa-contact-cell.mui-table .mui-table-cell {
+			padding: 11px 0;
+			vertical-align: middle;
+		}
+
+		.oa-contact-cell {
+			position: relative;
+			margin: -11px 0;
+		}
+
+		.oa-contact-avatar {
+			width: 75px;
+		}
+
+		.oa-contact-avatar img {
+			border-radius: 50%;
+		}
+
+		.oa-contact-content {
+			width: 100%;
+		}
+
+		.oa-contact-name {
+			margin-right: 20px;
+		}
+
+		.oa-contact-name,
+		oa-contact-position {
+			float: left;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- 头部 -->
+	<header class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon-search mui-pull-right"></a>
+		<h1 class="mui-title">乐淘云购</h1>
+	</header>
+	<!-- 底部导航 -->
+	<nav class="mui-bar mui-bar-tab">
+		<a class="mui-tab-item mui-active" href="#tabbar">
+			<span class="mui-icon mui-icon-home"></span>
+			<span class="mui-tab-label">首页</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-chat">
+			<span class="mui-tab-label">消息</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-contact">
+			<span class="mui-icon fa fa-icon-shopping"></span>
+			<span class="mui-tab-label">通讯录</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-map">
+			<span class="mui-icon mui-icon-gear"></span>
+			<span class="mui-tab-label">设置</span>
+		</a>
+	</nav>
+	<!-- 轮播图 -->
+	<div class="mui-content slideshow">
+		<div class="mui-slider">
+			<div class="mui-slider-group mui-slider-loop">
+				<!--支持循环，需要重复图片节点-->
+				<div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="../m/images/banner4.png" /></a></div>
+				<div class="mui-slider-item"><a href="#"><img src="../m/images/banner1.png" /></a></div>
+				<div class="mui-slider-item"><a href="#"><img src="../m/images/banner2.png" /></a></div>
+				<div class="mui-slider-item"><a href="#"><img src="../m/images/banner3.png" /></a></div>
+				<div class="mui-slider-item"><a href="#"><img src="../m/images/banner4.png" /></a></div>
+				<!--支持循环，需要重复图片节点-->
+				<div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="../m/images/banner1.png" /></a></div>
+			</div>
+			<div class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+			</div>
+		</div>
+	</div>
+	<!-- 分类页 -->
+	<div class="category mui-content">
+		<div class="mui-row">
+			<div class="mui-col-sm-4">
+				<li class="mui-table-view-cell">
+					<a>
+						<img src="../m/images/nav1.png" alt="">
+					</a>
+				</li>
+			</div>
+			<div class="mui-col-sm-4">
+				<li class="mui-table-view-cell">
+					<a>
+						<img src="../m/images/nav2.png" alt="">
+					</a>
+				</li>
+			</div>
+			<div class="mui-col-sm-4">
+				<li class="mui-table-view-cell">
+					<a>
+						<img src="../m/images/nav3.png" alt="">
+					</a>
+				</li>
+			</div>
+			<div class="mui-col-sm-4">
+				<li class="mui-table-view-cell">
+					<a>
+						<img src="../m/images/nav4.png" alt="">
+					</a>
+				</li>
+			</div>
+			<div class="mui-col-sm-4">
+				<li class="mui-table-view-cell">
+					<a>
+						<img src="../m/images/nav5.png" alt="">
+					</a>
+				</li>
+			</div>
+			<div class="mui-col-sm-4">
+				<li class="mui-table-view-cell">
+					<a>
+						<img src="../m/images/nav6.png" alt="">
+					</a>
+				</li>
+			</div>
+
+		</div>
+	</div>
+	<!-- 品牌专区 -->
+	<div class="product">
+		<img src="../m/images/title0.png" alt="">
+		<div class="mui-row">
+			<div class="mui-col-sm-3">
+				<li class="mui-table-view-cell">
+					<a href="#">
+						<img src="../m/images/brand1.png" alt="">
+					</a>
+				</li>
+			</div>
+			<div class="mui-col-sm-3">
+				<li class="mui-table-view-cell">
+					<a href="#">
+						<img src="../m/images/brand2.png" alt="">
+					</a>
+				</li>
+			</div>
+			<div class="mui-col-sm-3">
+				<li class="mui-table-view-cell">
+					<a href="#">
+						<img src="../m/images/brand3.png" alt="">
+					</a>
+				</li>
+			</div>
+			<div class="mui-col-sm-3">
+				<li class="mui-table-view-cell">
+					<a href="#">
+						<img src="../m/images/brand4.png" alt="">
+					</a>
+				</li>
+			</div>
+			<div class="mui-col-sm-3">
+				<li class="mui-table-view-cell">
+					<a href="#">
+						<img src="../m/images/brand5.png" alt="">
+					</a>
+				</li>
+			</div>
+			<div class="mui-col-sm-3">
+				<li class="mui-table-view-cell">
+					<a href="#">
+						<img src="../m/images/brand6.png" alt="">
+					</a>
+				</li>
+			</div>
+			<div class="mui-col-sm-3">
+				<li class="mui-table-view-cell">
+					<a href="#">
+						<img src="../m/images/brand7.png" alt="">
+					</a>
+				</li>
+			</div>
+			<div class="mui-col-sm-3">
+				<li class="mui-table-view-cell">
+					<a href="#">
+						<img src="../m/images/brand8.png" alt="">
+					</a>
+				</li>
+			</div>
+
+		</div>
+	</div>
+	<!-- 商品活动 -->
+	<div class="product_active mui-content">
+		<img src="../m/images/title0.png" alt="">
+		<div class="mui-row">
+			<div class="mui-col-sm-6">
+				<li>
+					<a href="#">
+						<img src="../m/images/product.jpg">
+						<p>
+							adidas阿迪达斯 男式 场下休闲篮球鞋S83700
+						</p>
+						<p>
+							<span>￥222</span>
+							<span>￥1222</span>
+						</p>
+						<span class="product_buy">立即购买</span>
+					</a>
+				</li>
+			</div>
+			<div class="mui-col-sm-6">
+				<li>
+					<a href="#">
+						<img src="../m/images/product.jpg">
+						<p>
+							adidas阿迪达斯 男式 场下休闲篮球鞋S83700
+						</p>
+						<p>
+							<span>￥222</span>
+							<span>￥1222</span>
+						</p>
+						<span class="product_buy">立即购买</span>
+					</a>
+				</li>
+			</div>
+			<div class="mui-col-sm-6">
+				<li>
+					<a href="#">
+						<img src="../m/images/product.jpg">
+						<p>
+							adidas阿迪达斯 男式 场下休闲篮球鞋S83700
+						</p>
+						<p>
+							<span>￥222</span>
+							<span>￥1222</span>
+						</p>
+						<span class="product_buy">立即购买</span>
+					</a>
+				</li>
+			</div>
+			<div class="mui-col-sm-6">
+				<li>
+					<a href="#">
+						<img src="../m/images/product.jpg">
+						<p>
+							adidas阿迪达斯 男式 场下休闲篮球鞋S83700
+						</p>
+						<p>
+							<span>￥222</span>
+							<span>￥1222</span>
+						</p>
+						<span class="product_buy">立即购买</span>
+					</a>
+				</li>
+			</div>
+
+		</div>
+	</div>
+	<script src="./js/zepto.min.js"></script>
+	<script src="../m/assets/mui/js/mui.min.js"></script>
+	<script src="./js/index.js"></script>
+	<script>
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+	</script>
+</body>
+
+
+</html>
