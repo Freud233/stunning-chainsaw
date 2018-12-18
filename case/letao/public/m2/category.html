@@ -52,12 +52,13 @@
             </div>    
         </div>
     </div>
-    <!-- 分类引擎模板 -->
+    <!-- 一级分类引擎模板 -->
     <script id="category_list" type="text/template">
             <% for(var i = 0; i < obj.length;i++){%>
-                <a data-id="<%=obj[i].id%>"><%=obj[i].categoryName%></a>
+                <a class="<%= i==0?'active':''%>" data-id="<%=obj[i].id%>"><%=obj[i].categoryName%></a>
             <% }%>        
     </script>
+    <!-- 二级分类 -->
     <script id="category_list_content" type="text/template">
         <% for(var i = 0; i < obj.length;i++){%>
             <li>
@@ -67,7 +68,10 @@
                 </a>
             </li>
         <% }%>        
-</script>
+        <% if(!obj.length){%>
+            <p>暂无数据</p>
+        <% }%>        
+    </script>
     <script src="../m/assets/mui/js/mui.min.js"></script>
     <script src="../m/assets/artTemplate/template-native.js"></script>
     <script src="./js/zepto.min.js"></script>

@@ -1,5 +1,7 @@
 /* base.css 公共样式 */
-
+* {
+  touch-action: none;
+}
 @font-face {
   font-family: "iconfont";
   src:
