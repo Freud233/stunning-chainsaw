@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
@@ -24,6 +25,7 @@
 		}
 	</style>
 </head>
+
 <body>
 	<header class="mui-bar mui-bar-nav my-header">
 		<h1 class="mui-title">收获地址列表</h1>
@@ -48,10 +50,25 @@
 		</a>
 	</nav>
 	<div class="mui-content">
-		<a href="addAddress.html?isEdit=0" class="addAddress">添加收货地址</a>
-		<ul class="mui-table-view" id="address-box">
-		    
-		</ul>
+		<a href="addAddress.html" class="addAddress">添加收货地址</a>
+		<div class="addressBox"></div>
 	</div>
+	<script src="./js/address.js"></script>
+	<script type="text/template" id="addressList">
+		<ul id="OA_task_1" class="mui-table-view">
+			<% for(var i = 0; i < obj.length; i++){%>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-green"  href="addAddress.html?id=<%=obj[i].id%>">编辑</a>
+						<a href="#" class="mui-btn mui-btn-red removeAddress" data-id="<%=obj[i].id%>">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+						<%=obj[i].id%>
+					</div>
+				</li>
+			<% } %>
+			</ul>
+	</script>
 </body>
+
 </html>
