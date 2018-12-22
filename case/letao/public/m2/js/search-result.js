@@ -24,6 +24,8 @@ $(function () {
                 pageSize: 2,
             },order),
             success: function (result) {
+                console.log(result);
+                
                 if (result.data.length > 0) {
                     html += template("product_list", result);
                     $("#search-box").html(html);

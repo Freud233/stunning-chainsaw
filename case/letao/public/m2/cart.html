@@ -12,23 +12,22 @@
 	<script src="../m/assets/mui/js/mui.min.js"></script>
 	<script src="../m/js/public.js"></script>
 	<style>
-		.mui-media-body {
-			font-size: 14px;
+		.gowuche {
+			margin-top: 44px;
 		}
-
-		.addAddress {
-			display: block;
-			width: 100%;
-			padding: 10px 0;
+		.mui-table-view {
+			display: flex;
+		}
+		.mui-table-view p {
 			text-align: center;
-			font-size: 14px;
+			flex: 1;
 		}
 	</style>
 </head>
 
 <body>
 	<header class="mui-bar mui-bar-nav my-header">
-		<h1 class="mui-title">收获地址列表</h1>
+		<h1 class="mui-title">购物车列表</h1>
 		<a class="mui-icon mui-icon-search mui-pull-right"></a>
 	</header>
 	<nav class="mui-bar mui-bar-tab my-footer">
@@ -49,26 +48,16 @@
 			<span class="mui-tab-label">会员中心</span>
 		</a>
 	</nav>
-	<div class="mui-content">
-		<a href="addAddress.html" class="addAddress">添加收货地址</a>
-		<div class="addressBox"></div>
-	</div>
-	<script src="./js/address.js"></script>
-	<script type="text/template" id="addressList">
-		<ul id="OA_task_1" class="mui-table-view">
-			<% for(var i = 0; i < obj.length; i++){%>
-				<li class="mui-table-view-cell">
-					<div class="mui-slider-right mui-disabled">
-						<a class="mui-btn mui-btn-green"  href="addAddress.html?id=<%=obj[i].id%>">编辑</a>
-						<a href="#" class="mui-btn mui-btn-red removeAddress" data-id="<%=obj[i].id%>">删除</a>
-					</div>
-					<div class="mui-slider-handle">
-						<%=obj[i].recipients%>
-					</div>
-				</li>
-			<% } %>
-			</ul>
+	<div class="gowuche"></div>
+	<script type="text/template" id="shoppingList">
+		<ul class="mui-table-view">
+			<%for(var i = 0; i < obj.length; i++){%>
+				<p>价格:<%=obj[i].price%></p>
+				<p>数量:<%=obj[i].num%></p>
+			<% } %>		
+		</ul>
 	</script>
+	<script src="./js/cart.js"></script>
 </body>
 
 </html>
