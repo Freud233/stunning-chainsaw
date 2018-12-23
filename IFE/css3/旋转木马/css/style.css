@@ -6,7 +6,6 @@ body,div,img {
 .box {
     width: 100%;
     height: 900px;
-    background-color: red;
     perspective: 2000px;
 }
 
