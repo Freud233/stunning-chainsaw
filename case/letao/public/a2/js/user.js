@@ -1,27 +1,13 @@
 $(function () {
     let page = 1;
     let pageSize = 5;
-    $.ajax({
-        url: "/user/queryUser",
-        type: "get",
-        data: {
-            page: page,
-            pageSize: pageSize
-        },
-        success: function (res) {
-            $.ajax({
-                url: "/user/queryUser",
-                type: "get",
-                data: {
-                    page: page,
-                    pageSize: res.total
-                },
-                success: function (res) {
-                    let html = template("userList", res);
-                    $("#user-box").html(html);
-                }
-            })
-        }
+    fetch(`/user/queryUser?page=${page}&pageSize=${pageSize}`,{
+    }).then(function(res){
+        return res.json();
+    }).then(function(data){
+        console.log(data); 
+        let html = template("userList", data);
+        $("#user-box").html(html);
     })
     $(".body").on("click", "#status-btn", function () {
         let isDelete = $(this).data("isdelete") == 1 ? 0 : 1;
