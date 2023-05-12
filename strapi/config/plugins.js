@@ -1,20 +1,29 @@
 module.exports = ({ env }) => ({
-  // ...
-  "config-sync": {
-    enabled: true,
+  upload: {
     config: {
-      syncDir: "config/sync/",
-      minify: false,
-      soft: false,
-      importOnBootstrap: false,
-      customTypes: [],
-      excludedTypes: [],
-      excludedConfig: [
-        "core-store.plugin_users-permissions_grant",
-        "core-store.plugin_upload_metrics",
-        "core-store.strapi_content_types_schema",
-        "core-store.ee_information",
-      ],
+      provider: "strapi-provider-upload-oss", // full package name is required
+      providerOptions: {
+        accessKeyId: env("ACCESS_KEY_ID"),
+        accessKeySecret: env("ACCESS_KEY_SECRET"),
+        region: env("REGION"),
+        bucket: env("BUCKET"),
+        uploadPath: env("UPLOAD_PATH"),
+        baseUrl: env("BASE_URL"),
+        timeout: env("TIMEOUT"),
+        secure: env("OSS_SECURE"),
+      },
+    },
+  },
+  graphql: {
+    config: {
+      endpoint: "/graphql",
+      shadowCRUD: true,
+      playgroundAlways: false,
+      depthLimit: 7,
+      amountLimit: 100,
+      apolloServer: {
+        tracing: false,
+      },
     },
   },
 });
