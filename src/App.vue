@@ -1,5 +1,7 @@
 <template>
-  <div class="text-2xl font-bold underline">APP</div>
+  <div class="text-2xl font-bold underline">
+    <Hello></Hello>
+  </div>
 </template>
 
 <script>
