@@ -16,6 +16,8 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",
     "autoprefixer": "^10.4.14",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "naive-ui": "^2.34.3",
     "tailwindcss": "^3.3.2",
     "unplugin-auto-import": "^0.15.3",
