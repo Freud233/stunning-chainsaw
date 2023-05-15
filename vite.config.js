@@ -3,7 +3,9 @@ import vue from '@vitejs/plugin-vue';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
-
+import postcssImport from 'postcss-import';
+import autoprefixer from 'autoprefixer';
+import tailwindcss from 'tailwindcss';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -25,4 +27,9 @@ export default defineConfig({
       resolvers: [NaiveUiResolver()],
     }),
   ],
+  css: {
+    postcss: {
+      plugins: [postcssImport(), autoprefixer(), tailwindcss()],
+    },
+  },
 });
