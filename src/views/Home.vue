@@ -32,13 +32,15 @@
         </div>
     </div> -->
     <!-- 卡片 -->
+    <!-- <pre>{{ postsList }}</pre> -->
     <div class="bg-[#0F9D58] main flex flex-wrap justify-around p-2">
-        <div v-for="post in posts" :key="post.id" class="max-w-sm mt-6 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800
-                                dark:border-gray-700">
+        <div v-for="post in postsList" :key="post.id" class="max-w-sm mt-6 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800
+                                                    dark:border-gray-700">
             <a href="#">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ post.title }}</h5>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ post.attributes.title }}
+                </h5>
             </a>
-            <p class="mb-3 font-normal  h-24 text-gray-700 dark:text-gray-400">{{ post.content }}</p>
+            <p class="mb-3 font-normal  h-24 text-gray-700 dark:text-gray-400">{{ post.attributes.content }}</p>
             <a href="#"
                 class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Read more
@@ -50,60 +52,59 @@
                 </svg>
             </a>
         </div>
-    </div> <!-- banner -->
+    </div>
+    <!-- banner -->
     <div class=" w-4/5 m-auto mt-4 mb-4 grid grid-cols-2 md:grid-cols-3 gap-4">
         <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg"
-                alt="">
+            <img class="h-auto max-w-full rounded-lg"
+                src="https://zhangdodo.oss-cn-nanjing.aliyuncs.com/strapi/10011_80696b8e57.jpg" alt="">
         </div>
         <div>
             <img class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
+                src="https://zhangdodo.oss-cn-nanjing.aliyuncs.com/strapi/10011_80696b8e57.jpg" alt="">
         </div>
         <div>
             <img class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
+                src="https://zhangdodo.oss-cn-nanjing.aliyuncs.com/strapi/10011_80696b8e57.jpg" alt="">
         </div>
         <div>
             <img class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="">
+                src="https://zhangdodo.oss-cn-nanjing.aliyuncs.com/strapi/10011_80696b8e57.jpg" alt="">
         </div>
         <div>
             <img class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="">
+                src="https://zhangdodo.oss-cn-nanjing.aliyuncs.com/strapi/10011_80696b8e57.jpg" alt="">
         </div>
         <div>
             <img class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="">
+                src="https://zhangdodo.oss-cn-nanjing.aliyuncs.com/strapi/10011_80696b8e57.jpg" alt="">
         </div>
         <div>
             <img class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg" alt="">
+                src="https://zhangdodo.oss-cn-nanjing.aliyuncs.com/strapi/10011_80696b8e57.jpg" alt="">
         </div>
         <div>
             <img class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg" alt="">
+                src="https://zhangdodo.oss-cn-nanjing.aliyuncs.com/strapi/10011_80696b8e57.jpg" alt="">
         </div>
         <div>
             <img class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg" alt="">
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg" alt="">
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg" alt="">
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg" alt="">
+                src="https://zhangdodo.oss-cn-nanjing.aliyuncs.com/strapi/10011_80696b8e57.jpg" alt="">
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+import { getPosts } from '../request/posts'
+let postsList = ref([])
+const getPostsHandler = async () => {
+    let { data } = await getPosts()
+    postsList.value = data.data
+}
+console.log(postsList);
+
+getPostsHandler()
 const posts = [
     {
         id: 1,
