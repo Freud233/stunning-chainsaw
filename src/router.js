@@ -5,6 +5,11 @@ const routes = [
     name: 'Home',
     component: () => import('./views/Home.vue'),
   },
+  {
+    path: '/categorys/:id',
+    name: 'Category',
+    component: () => import('./components/Category.vue'),
+  }
 ];
 const router = createRouter({
   history: createWebHistory(),

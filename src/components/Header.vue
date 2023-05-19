@@ -11,7 +11,7 @@
 				</div>
 				<ul class="hidden items-center gap-8 sm:flex">
 					<li class="relative cursor-pointer text-sm font-medium transition-all" x-data="dropdown">
-						<a class="text-gray-600 hover:text-blue-600 dark:text-slate-50 dark:hover:text-gray-300" href="/">首页</a>
+						<router-link	class="text-gray-600 hover:text-blue-600 dark:text-slate-50 dark:hover:text-gray-300" to="/categorys/1" >首页</router-link>
 					</li>
 					<li class="relative cursor-pointer text-sm font-medium transition-all" x-data="dropdown">
 						<a class="text-gray-600 hover:text-blue-600 dark:text-slate-50 dark:hover:text-gray-300"

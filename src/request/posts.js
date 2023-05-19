@@ -6,3 +6,10 @@ export const getPosts = () => {
     method: 'get',
   })
 }
+
+export const getPost = (id) => {
+  return service({
+    url: `/posts/${id}`,
+    method: 'get',
+  })
+}
