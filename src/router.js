@@ -2,15 +2,22 @@ import { createRouter, createWebHistory } from 'vue-router';
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: () => import('./views/Home.vue'),
-  },
-  {
-    path: '/categorys/:id',
-    name: 'Category',
-    component: () => import('./components/Category.vue'),
+    name: 'Layout',
+    component: () => import('./views/Layout.vue'),
+    children: [
+      {
+        path: '/',
+        name: 'Home',
+        component: () => import('./views/Home.vue'),
+      },
+      {
+        path: '/post/:id',
+        name: 'Post',
+        component: () => import('./views/Post.vue')
+      }
+    ]
   }
-];
+]
 const router = createRouter({
   history: createWebHistory(),
   routes,

@@ -9,10 +9,11 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    Category: typeof import('./src/components/Category.vue')['default']
-    Footer: typeof import('./src/components/Footer.vue')['default']
-    Header: typeof import('./src/components/Header.vue')['default']
-    Post: typeof import('./src/components/Post.vue')['default']
+    BaseFooter: typeof import('./src/components/BaseFooter.vue')['default']
+    BaseHeader: typeof import('./src/components/BaseHeader.vue')['default']
+    BasePost: typeof import('./src/components/BasePost.vue')['default']
+    NConfigProvider: typeof import('naive-ui')['NConfigProvider']
+    NGlobalStyle: typeof import('naive-ui')['NGlobalStyle']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
