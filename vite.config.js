@@ -7,10 +7,14 @@ import postcssImport from 'postcss-import';
 import autoprefixer from 'autoprefixer';
 import tailwindcss from 'tailwindcss';
 import mdPlugin from 'vite-plugin-markdown'
+import {prismjsPlugin} from 'vite-plugin-prismjs'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    mdPlugin.plugin({ mode: [ 'html','vue'] }),
+    mdPlugin.plugin({ mode: ['html', 'vue'] }),
+    prismjsPlugin({
+      languages: ['json','javascript']
+    }),
     vue(),
     AutoImport({
       imports: [
