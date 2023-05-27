@@ -1,5 +1,4 @@
 <script setup lang='ts'>
-import { ref } from 'vue';
 let text = ref('# Hello world')
 // TODO: 上传图片
 
