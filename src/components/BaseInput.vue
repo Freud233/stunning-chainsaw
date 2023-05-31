@@ -1,17 +1,24 @@
 <script setup lang='ts'>
-import { PropType } from 'vue';
+import { PropType, onMounted } from 'vue';
 import { emitter } from '../views/Login.vue'
-import { onMounted } from 'vue';
-interface RuleProp {
-  type: 'username' | 'email' | 'password' | 'required',
+export interface RuleProp {
+  type: 'username' | 'email' | 'password' | 'required' | 'confirmPassword',
   message?: string,
 }
 let props = defineProps({
+  type: {
+    type: String,
+    default: 'text'
+  },
   label: {
     type: String,
     default: 'label'
   },
   modelValue: {
+    type: String,
+    default: ''
+  },
+  otherValue: {
     type: String,
     default: ''
   },
@@ -46,6 +53,12 @@ const validateHandler = () => {
         case 'email':
           passed = /\S+@\S+\.\S+/.test(inputData.value.trim())
           break
+        case 'password':
+          passed = inputData.value.trim().length > 6
+          break
+        case 'confirmPassword':
+          passed = inputData.value.trim() === props.otherValue.trim()
+          break
         default:
           break
       }
@@ -62,7 +75,8 @@ onMounted(() => {
 </script>
 <template>
   <div class="relative z-0 w-full my-10 group">
-    <input type="text" :name="label" :id="label" :value="inputData.value" @input="inputHandler" @blur="validateHandler"
+    <input :type="type" :name="label" :id="label" :value="inputData.value" @input="inputHandler" @blur="validateHandler"
+      @update:otherValue="inputData.otherValue = $event"
       class="block pt-4 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
       placeholder=" " required />
     <label :for="label"

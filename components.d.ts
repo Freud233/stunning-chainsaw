@@ -18,6 +18,7 @@ declare module '@vue/runtime-core' {
     From: typeof import('./src/components/From.vue')['default']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NGlobalStyle: typeof import('naive-ui')['NGlobalStyle']
+    NNotificationProvider: typeof import('naive-ui')['NNotificationProvider']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

@@ -8,6 +8,9 @@ onMounted(() => {
 </script>
 
 <template>
-    <router-view></router-view>
+    <n-config-provider class="h-full">
+        <router-view></router-view>
+        <n-global-style />
+    </n-config-provider>
 </template>
 

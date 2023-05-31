@@ -1,6 +1,7 @@
 <script lang='ts'>
 import mitt from 'mitt'
 import { defineComponent } from 'vue';
+import { registerUser } from '../request/login'
 export const emitter = mitt()
 export default defineComponent({
   setup() {
@@ -9,6 +10,7 @@ export default defineComponent({
       email: '',
       password: '',
     })
+    let confirmPassword = ref(null)
     let usernameRules = [
       {
         type: 'required',
@@ -29,15 +31,42 @@ export default defineComponent({
         message: '邮箱格式不正确',
       }
     ]
-    const submitHandler = (allPassed: boolean) => {
+    let passwordRules = [
+      {
+        type: 'required',
+        message: '密码不能为空',
+      },
+      {
+        type: 'password',
+        message: '密码长度不能小于6',
+      }
+    ]
+    let passwordConfirmRules = [
+      {
+        type: 'required',
+        message: '密码不能为空',
+      },
+      {
+        type: 'confirmPassword',
+        message: '两次密码不一致',
+      }
+    ]
+    const submitHandler = async (allPassed: boolean) => {
       if (allPassed) {
-        console.log('submit')
+        let data = await registerUser(userInfo)
+        console.log(data);
+        if (data.status === 200) {
+          alert('注册成功')
+        }
       }
     }
     return {
       userInfo,
       usernameRules,
       emailRules,
+      passwordRules,
+      confirmPassword,
+      passwordConfirmRules,
       submitHandler
     }
   }
@@ -49,6 +78,10 @@ export default defineComponent({
       <h2 class="mt-2 mb-4 text-2xl">注册</h2>
       <BaseInput v-model="userInfo.username" :rules="usernameRules" label="用户名"></BaseInput>
       <BaseInput v-model="userInfo.email" :rules="emailRules" label="邮箱"></BaseInput>
+      <BaseInput v-model="userInfo.password" type="password" :rules="passwordRules" label="密码"></BaseInput>
+      <BaseInput v-model="confirmPassword" type="password" :otherValue="userInfo.password" :rules="passwordConfirmRules"
+        label="重复输入密码">
+      </BaseInput>
     </From>
   </div>
 </template>
