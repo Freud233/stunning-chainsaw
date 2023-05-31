@@ -1,37 +1,59 @@
-<script setup lang='ts'>
-import { registerUser } from '../request/login';
-const submitHandler = async () => {
-  console.log(userInfo.value)
-  let data = await registerUser(userInfo.value)
-  console.log(data);
-}
-let userInfo = ref({
-  username: '',
-  email: '',
-  password: '',
+<script lang='ts'>
+import mitt from 'mitt'
+import { defineComponent } from 'vue';
+export const emitter = mitt()
+type validateFunc = () => boolean
+export default defineComponent({
+  setup() {
+    const submitHandler = async () => {
+      let allPassed = inputValidateFuncArray.map(func => func()).every(passed => passed)
+      console.log(allPassed);
+    }
+    let userInfo = reactive({
+      username: '',
+      email: '',
+      password: '',
+    })
+    let usernameRules = [
+      {
+        type: 'required',
+        message: '用户名不能为空',
+      },
+      {
+        type: 'username',
+        message: '用户名长度不能超过12',
+      }
+    ]
+    let emailRules = [
+      {
+        type: 'required',
+        message: '邮箱不能为空',
+      },
+      {
+        type: 'email',
+        message: '邮箱格式不正确',
+      }
+    ]
+    let inputValidateFuncArray: validateFunc[] = []
+    let validateCallback = func => {
+      inputValidateFuncArray.push(func)
+    }
+    emitter.on('validate-created', validateCallback)
+    return {
+      userInfo,
+      usernameRules,
+      emailRules,
+      submitHandler,
+    }
+  }
 })
-
 </script>
 <template>
   <div class="h-full flex justify-center items-center">
     <form class="w-96 rounded-xl ring-1 p-8 ">
       <h2 class="mt-2 mb-4 text-2xl">注册</h2>
-      <div class="relative z-0 w-full mb-6 group">
-        <input type="text" name="floating_name" id="floating_name" v-model="userInfo.username"
-          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-          placeholder=" " required />
-        <label for="floating_name"
-          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-          用户昵称</label>
-      </div>
-      <div class="relative z-0 w-full mb-6 group">
-        <input type="email" name="floating_email" id="floating_email" v-model="userInfo.email"
-          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-          placeholder=" " required />
-        <label for="floating_email"
-          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email
-          address</label>
-      </div>
+      <BaseInput v-model="userInfo.username" :rules="usernameRules" label="用户名"></BaseInput>
+      <BaseInput v-model="userInfo.email" :rules="emailRules" label="邮箱"></BaseInput>
       <div class="relative z-0 w-full mb-6 group">
         <input type="password" name="floating_password" id="floating_password"
           class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"

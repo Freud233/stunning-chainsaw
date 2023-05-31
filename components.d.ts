@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BaseFooter: typeof import('./src/components/BaseFooter.vue')['default']
     BaseHeader: typeof import('./src/components/BaseHeader.vue')['default']
+    BaseInput: typeof import('./src/components/BaseInput.vue')['default']
     BaseMarkdown: typeof import('./src/components/BaseMarkdown.vue')['default']
     BasePost: typeof import('./src/components/BasePost.vue')['default']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
