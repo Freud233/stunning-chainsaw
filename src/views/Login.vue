@@ -1,10 +1,13 @@
 <script lang='ts'>
 import mitt from 'mitt'
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 import { registerUser } from '../request/login'
+import { setToken } from '../tools/token';
 export const emitter = mitt()
 export default defineComponent({
   setup() {
+    const router = useRouter()
     let userInfo = reactive({
       username: '',
       email: '',
@@ -18,7 +21,7 @@ export default defineComponent({
       },
       {
         type: 'username',
-        message: '用户名长度不能超过12',
+        message: '用户名长度要大于3小于12',
       }
     ]
     let emailRules = [
@@ -56,7 +59,8 @@ export default defineComponent({
         let data = await registerUser(userInfo)
         console.log(data);
         if (data.status === 200) {
-          alert('注册成功')
+          setToken('token', data.data.jwt)
+          router.push('/')
         }
       }
     }

@@ -48,7 +48,7 @@ const validateHandler = () => {
           passed = inputData.value.trim().length > 0
           break
         case 'username':
-          passed = inputData.value.trim().length < 12
+          passed = inputData.value.trim().length < 12 && inputData.value.trim().length > 3
           break
         case 'email':
           passed = /\S+@\S+\.\S+/.test(inputData.value.trim())
