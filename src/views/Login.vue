@@ -3,7 +3,7 @@ import mitt from 'mitt'
 import { defineComponent, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { registerUser } from '../request/login'
-import { setToken } from '../tools/token';
+import { setToken } from '../utils/token';
 export const emitter = mitt()
 export default defineComponent({
   setup() {

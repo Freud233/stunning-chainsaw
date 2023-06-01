@@ -15,10 +15,8 @@ declare module '@vue/runtime-core' {
     BaseMarkdown: typeof import('./src/components/BaseMarkdown.vue')['default']
     BasePost: typeof import('./src/components/BasePost.vue')['default']
     From: typeof import('./src/components/From.vue')['default']
-    NButton: typeof import('naive-ui')['NButton']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NGlobalStyle: typeof import('naive-ui')['NGlobalStyle']
-    NSpace: typeof import('naive-ui')['NSpace']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

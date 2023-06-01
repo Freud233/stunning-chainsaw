@@ -8,7 +8,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <n-config-provider class="h-full">
+    <n-config-provider class="min-h-screen flex flex-col">
         <router-view></router-view>
         <n-global-style />
     </n-config-provider>

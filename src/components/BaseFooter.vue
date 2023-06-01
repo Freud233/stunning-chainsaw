@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 </script>
 <template>
-  <footer class="bg-yellow-200 dark:bg-gray-900">
+  <footer class="bg-yellow-200 mt-auto dark:bg-gray-900">
     <div class="mx-auto w-full max-w-screen-2xl p-4 py-6 lg:py-8">
       <div class="md:flex md:justify-between">
         <div class="mb-6 md:mb-0">
