@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <div class="container  m-auto ">
+        <div class="container m-auto">
             <BasePost v-for="post in posts" :post="post" @click=""></BasePost>
         </div>
     </div>

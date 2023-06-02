@@ -1,9 +1,10 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
+// tailwindcss
 import '/src/assets/style/tailwind.css'
 import '/src/assets/style/base.css'
-
+// markdown
 import VueMarkdownEditor from '@kangc/v-md-editor';
 import '@kangc/v-md-editor/lib/style/base-editor.css';
 import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js';
