@@ -13,3 +13,13 @@ export const getPost = (id) => {
     method: 'get',
   })
 }
+
+// 编辑post
+
+export const editPost = (id, data) => { 
+  return service({
+    url: `/posts/${id}`,
+    method: 'put',
+    data,
+  })
+}

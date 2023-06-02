@@ -7,13 +7,18 @@
 </template>
   
 <script lang="ts" setup>
-import {onMounted, ref} from 'vue'
-import {getPosts} from '../request/posts.js'
+import { getPosts } from '../request/posts.js'
 const posts = ref([])
-onMounted(async() => {
-    let {data} = await getPosts()
-    console.log(data);
-    posts.value = data.data
+const message = useMessage()
+onMounted(async () => {
+    let result = await getPosts()
+    console.log(result);
+    if (result.status !== 200) {
+        message.error(result.statusText)
+        return
+    }
+    message.success('获取文章成功')
+    posts.value = result.data.data
 })
 </script>
   
