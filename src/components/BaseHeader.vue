@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 </script>
 <template>
-  <nav class="bg-slate-200 border-gray-200 sticky top-0 dark:bg-gray-900">
+  <nav class="bg-slate-200 border-gray-200 sticky top-0 z-20 dark:bg-gray-900">
     <div class="max-w-screen-2xl m-auto flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="https://flowbite.com/" class="flex items-center">
         <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="Flowbite Logo" />
