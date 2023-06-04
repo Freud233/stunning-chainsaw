@@ -10,10 +10,14 @@
     "commit": "git-cz"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.15",
     "@babel/core": "^7.21.8",
     "@kangc/v-md-editor": "^2.3.15",
+    "@vue/apollo-composable": "^4.0.0-beta.5",
     "axios": "^1.4.0",
     "flowbite": "^1.6.5",
+    "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6",
     "markdown-it": "^13.0.1",
     "mitt": "^3.0.0",
     "moment": "^2.29.4",

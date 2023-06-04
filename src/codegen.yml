@@ -1,0 +1,5 @@
+schema: https://api.zhangxiang.link/graphql
+generates:
+  ./src/types/graphql/types.d.ts:
+    plugins:
+      - typescript
