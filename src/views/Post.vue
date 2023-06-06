@@ -34,19 +34,19 @@ const editorMarkdown = () => {
 }
 </script>
 <template>
-  <div class="post container m-auto flex">
+  <div class="post container m-auto flex py-4">
     <!-- 文章内容 -->
     <div class="flex-1">
       <h1 class="text-3xl">{{ postData.title }}</h1>
       <div class="author flex items-center">
         <!-- 用户头像 -->
-        <svg fill="none" class="w-10 h-10 " stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+        <svg fill="none" class="w-8 h-8 my-2" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round"
             d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75">
           </path>
         </svg>
-        <div class="meta-box">
+        <div class="meta-box ml-4">
           <span class="text-gray-500 text-sm mr-10"> 作者:&nbsp;&nbsp;{{ postData.author }}</span>
           <span class="text-gray-500 text-sm">时间:&nbsp;&nbsp;
             {{ momentFormat(postData.publishTime).format('YY MMM DD hh mm SS') }}</span>
@@ -65,7 +65,7 @@ const editorMarkdown = () => {
                                               dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">取消</button>
     </div>
     <!-- 用户信息展示 -->
-    <div v-if="isPreview === 'preview' ? true : false" class="w-1/5">
+    <div v-if="isPreview === 'preview' ? true : false" class="hidden xl:block xl:w-1/5">
       <div class="bg-red-100">
         <p v-for="i in 10">这里用作展示用户信息和标题导航</p>
       </div>

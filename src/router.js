@@ -14,13 +14,19 @@ const routes = [
         path: '/post/:id',
         name: 'Post',
         component: () => import('./views/Post.vue')
-      }
+      },
+
     ]
   },
   {
     path: '/login',
     name: 'Login',
     component: () => import('./views/Login.vue')
+  },
+  {
+    path: '/createpost',
+    name: 'CreatePost',
+    component: () => import('./views/CreatePost.vue')
   }
 ]
 const router = createRouter({
