@@ -23,3 +23,12 @@ export const editPost = (id, data) => {
     data,
   })
 }
+
+// 创建post
+export const createPost = (data) => {
+  return service({
+    url: '/posts',
+    method: 'post',
+    data,
+  })
+}
